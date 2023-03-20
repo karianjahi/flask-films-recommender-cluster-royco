@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Awesome Movie Recommender</title>
+    <link rel="stylesheet" href="/static/my_styles.css">
+</head>
+
+<body>
+        <h1>{{title}}</h1>
+        <p>This is my movie recommender</p>
+        <img src="/static/fantasy.jpg">
+        <a href="https://www.lyrics.com">Go to the lyrics site!</a>
+        <br>
+        <form action="/recommender">
+            <p>Choose a method to rate movies</p>
+            <select name="method">
+                <option>recommend by Popular movie</option>
+                <option>recommend by NMF</option>
+                <option>recommend by Similarity</option>
+            </select>
+
+            <p>Please choose 5 movies and rate them within the range 1-5:</p>
+            {% for i in range(1, 6) %}
+            <input type="text"
+                   name="movie"
+                   placeholder="movie title"
+                   required list="movies">
+            <input type="text"
+                   name="rating"
+                   placeholder="1 - 5"
+                   required list="ratings">
+                <br><br>
+            {% endfor %}
+
+            <button type="submit">get recommendations</button>
+        </form>
+    <datalist id="movies">
+        {% for movie in movies %}
+        <option value="{{ movie }}"></option>
+        {%  endfor %}
+    </datalist>
+
+   <datalist id="ratings">
+        {% for rating in range(1, 6) %}
+        <option value="{{ rating }}"></option>
+        {%  endfor %}
+    </datalist>
+
+
+</body>
+</html>

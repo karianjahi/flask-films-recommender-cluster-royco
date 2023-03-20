@@ -1,0 +1,91 @@
+1. We want to work from a new folder called frontend_development
+We have to create the folder and import all files and folders from the afternoon version folder
+
+2. Create a virtual environment
+- you can use your favourite method. Whether conda or venv
+python -m venv venv
+
+3. Activate the new vm
+source venv/bin/activate
+
+4. You can list all modules in your new VM
+pip list
+
+5. Install flask
+    `pip install flask`
+
+6. run the application from localhost:
+`python application.py`
+
+7. Add select method (popular and NMF)
+	<select name="method">
+                <option>NMF</option>
+                <option>popular</option>
+	</select>
+8. Allow the user to rate movies they've seen so far
+	a. implement no loop
+		- remove the already existing hard coded lines
+		- create the input for movies and ratings as follows
+		<input type="text", name="movie" placeholder="movie title">
+		<input type="text", name="rating" placeholder="1 - 5">
+	b. implement a loop
+		{%for i in range(5)%}
+		 <input type="text", name="movie" placeholder="movie title">
+                <input type="text", name="rating" placeholder="1 - 5">
+		<br><br>
+		{% endfor %}
+
+9. Change the input for submit to get_recommendations using button type
+	<button type="submit">get recommendations</button>
+
+10. Implement a datalist to guide the user on movies stored in the database by:
+	- create a movie list in say utils.py and import it inside the application.py
+
+	- carry the movies at the index level of application.py by adding an argument movies=movies
+	- finally implement the datalist
+	<datalist id="movies">
+	{% for movie in movies %}
+		<option value="{{movie}}"></option>
+	{% endfor %}
+	</datalist>
+
+11. Implement the same thing as no. 4 but for ratings:
+   	<datalist id="ratings">
+            {% for rating in range(1, 6) %}
+            <option value="{{ rating }}"></option>
+            {% endfor %}
+        </datalist>
+
+12. Change html_form_data to specific inputs as follows:
+	method = request.args.getlist("method")
+	movies = ?? "movie"
+	ratings = ?? "ratings"
+
+7. create a utils.py file where you can add functions
+- in the utils.py file,
+    - add a function that converts the movies and ratings to a user dictionary
+    - prepare your movies there and have them as a list
+    - import movies and functions from `utils.py` inside the `application.py` file
+
+8. frontend development.
+	- Create static folder
+	- Add a movie image there (from pixabay.com)
+	- put the image on the body part
+	<img src="/static/woman.jpg">
+
+9. Add style.css file on static to modify the html page
+
+10. Reference the css file in both index and recommendations page after the <title> as follows:
+<link rel="stylesheet" href="/static/styling.css">
+
+11. Change some tags by assigning classes
+in html:
+<p class="special-header">Welcome to the movie recommender</p>
+
+in css:
+.special-header{
+    color: orange;
+    font-size: 300%;
+    font-family: "Droid Sans Mono";
+}
+

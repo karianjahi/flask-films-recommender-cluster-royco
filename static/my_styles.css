@@ -1,0 +1,76 @@
+body {
+    max-width: 100%;
+    background-color: blue;
+    color: white;
+    font-family: Monaco;
+    margin-left: 15%;
+    margin-right: 40%;
+}
+
+select{
+    font-family: Monaco;
+    color: white;
+    background-color: black;
+    font-weight: bolder;
+    font-size: 110%;
+}
+
+select:hover{
+    color: red;
+    font-size: 150%;
+    background-color: yellowgreen;
+}
+
+input{
+    font-family: Monaco;
+    font-size: 120%;
+    background-color: aqua;
+}
+
+input:hover{
+    color: magenta;
+}
+
+button{
+    color: white;
+    background-color: black;
+    font-family: Monaco;
+    font-weight: bolder;
+    font-size: 150%;
+}
+
+a {
+    color: white;
+    font-family: Monaco;
+    font-size:120%
+}
+
+a:hover{
+    font-size: 150%;
+    color:black
+}
+
+button:hover{
+    transform: scale(1.5) rotate(1.5deg);
+}
+
+img:hover{
+    transform: scale(1.1) rotate(2.5deg);
+    filter: brightness(350%);
+}
+
+ol {
+    font-weight: bolder;
+    font-size: 120%;
+}
+
+img {
+    width: 600px;
+}
+
+.special-header{
+    color: orange;
+    font-size: 200%;
+    font-family: "arial";
+    font-weight: bolder;
+}
